@@ -1,0 +1,39 @@
+.App {
+  font-family: "Roboto", sans-serif;
+  /*background: rgb(255, 248, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 248, 0, 0.5746673669467788) 0%,
+    rgba(232, 255, 0, 0.8603816526610644) 50%,
+    rgba(255, 248, 0, 0.57) 85%,
+    rgba(255, 248, 0, 0.57) 100%
+  );*/
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  font-size: 10em;
+}
+.App-logo {
+  width: 100px;
+  height: auto;
+  pointer-events: none;
+}
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  font-size: 10em;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
