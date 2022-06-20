@@ -11,21 +11,34 @@ export default function Signup() {
   const passwordRef = useRef(null);
   const password2Ref = useRef(null);
 
-
-  function register(){
+  function register() {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
     const password2 = password2Ref.current.value;
-    if(password !== password2){
+
+    if (password !== password2) {
       toast.error("Las contraseñas no coinciden");
-    }else if(username === "" || password === "" || password2 === "") {
+    } else if (username === "" || password === "" || password2 === "") {
       toast.error("Todos los campos son obligatorios");
+    } else {
+      Axios.post("http://localhost:3001/register", {
+        username: username,
+        password: password,
+      })
+        .then((res) => {
+          console.log(res);
+          toast.success("Usuario registrado");
+          window.location.href = "/login";
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("Error al registrar usuario");
+        });
     }
   }
 
-
   return (
-    <div className="login">
+    <div className="signup">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="row">
         <div className="col-sm-4 mt-5">

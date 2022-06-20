@@ -4,6 +4,12 @@
   display: flex;
   font-family: sans-serif;
 }
+.signup {
+  width: 100%;
+  height: auto;
+  display: flex;
+  font-family: sans-serif;
+}
 .row{
   width: 100%;
   height: auto;

@@ -4,11 +4,37 @@ import logou from "../images/person.svg";
 import logopass from "../images/key.svg";
 import logo from "../images/banana.png";
 import { Toaster, toast } from "react-hot-toast";
+import Axios from "axios";
 
 export default function Login() {
+  
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  function log() {
+    const username = usernameRef.current.value;
+    const password = passwordRef.current.value;
+    if(username === "" || password === "") {
+      toast.error("Todos los campos son obligatorios");
+    }else{
+      Axios.post("http://localhost:3001/login", {
+        username: username,
+        password: password
+      })
+        .then(res => {
+          console.log(res);
+          toast.success("Bienvenido");
+        }).catch(err => {
+          console.log(err);
+          toast.error("Usuario o contraseña incorrectos");
+        }
+        );
+    }
+    
+  }
 
   return (
-    <form className="login">
+    <div className="login">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="row">
         <div className="col-sm-4 mt-5">
@@ -31,6 +57,7 @@ export default function Login() {
                   placeholder="username"
                   aria-label="username"
                   aria-describedby="basic-addon1"
+                  ref={usernameRef}
                 />
               </div>
               <div className="input-group mb-3">
@@ -45,11 +72,13 @@ export default function Login() {
                   placeholder="password"
                   aria-label="contraseña"
                   aria-describedby="basic-addon2"
+                  ref={passwordRef}
                 />
               </div>
               <div className="d-grid gap-2 pt-3">
                 <button
                   className="btn btn-success btn-lg btn-block"
+                  onClick={log}
                 >
                   Login
                 </button>
@@ -58,6 +87,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-    </form>
+    </div>
   );
 }

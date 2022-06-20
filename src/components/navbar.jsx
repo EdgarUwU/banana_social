@@ -20,7 +20,7 @@ export default function navbar() {
                 Login
               </Nav.Link>
               <Nav.Link as={Link} to="/signup">
-                Signup
+                Registrar
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
