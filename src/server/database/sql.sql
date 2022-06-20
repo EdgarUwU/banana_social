@@ -13,8 +13,8 @@ CREATE TABLE `banana_social`.`usuarios` (
   `created_by` VARCHAR(50) NOT NULL DEFAULT 'CURRENT_USER',
   `created_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `delate` SMALLINT UNSIGNED NOT NULL DEFAULT 0,
-  `modified_by` VARCHAR(50) NOT NULL,
-  `modified_date` VARCHAR(50) NOT NULL,
+  `modified_by` VARCHAR(50) NULL,
+  `modified_date` VARCHAR(50) NULL,
   `id_publicaciones` SMALLINT NOT NULL AUTO_INCREMENT,
   `id_comentarios` SMALLINT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
@@ -23,22 +23,21 @@ CREATE TABLE `banana_social`.`usuarios` (
   foreign key (`tipo_usuario`) references `banana_social`.`tipo_usuario`(`id`)
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE);
 
-  CREATE TABLE `banana_social`.`tipo_usuarios` (
-  `id` SMALLINT NOT NULL AUTO_INCREMENT,
-  `tipo` VARCHAR(25) NOT NULL,
-  PRIMARY KEY (`id_tipo_user`),
-  UNIQUE INDEX `tipo_UNIQUE` (`tipo` ASC) VISIBLE);
 
   CREATE TABLE `banana_social`.`publicaciones` (
   `id_publicaciones` SMALLINT NOT NULL AUTO_INCREMENT,
   `puclicaciones` VARCHAR(45) NOT NULL,
   `created_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_by` VARCHAR(50) NULL,
+  `modified_date` VARCHAR(50) NULL,
   PRIMARY KEY (`id_publicaciones`));
 
   CREATE TABLE `banana_social`.`comentarios` (
   `id_comentarios` SMALLINT NOT NULL AUTO_INCREMENT,
   `comentarios` VARCHAR(45) NOT NULL,
   `created_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_by` VARCHAR(50) NULL,
+  `modified_date` VARCHAR(50) NULL,
   'id_user' SMALLINT NOT NULL,
   'id_publicaciones' SMALLINT NOT NULL,
   foreign key (`id_user`) references usuarios (`id`),
