@@ -25,6 +25,7 @@ export default function Login() {
           console.log(res.data);
           toast.success("Bienvenido");
           localStorage.setItem("token", res.data);
+          localStorage.setItem("username", username);
           window.location.href = "/Dashboard";
         }else{
           toast.error("Usuario o contraseña incorrectos");
