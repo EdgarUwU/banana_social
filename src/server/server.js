@@ -30,7 +30,7 @@ app.post("/login", (req, res) => {
         res.status(500).send("Error");
       } else {
         if (results.length > 0) {
-          res.send(results);
+          res.send("Login Successful");
         } else {
           res.send("Login Failed");
         }

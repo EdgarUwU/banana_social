@@ -3,6 +3,7 @@ import Login from './pages/login.jsx';
 import Signup from './pages/signup.jsx';
 import Navbar from './components/navbar.jsx';
 import Home from './pages/home.jsx';
+import Dashboard from './pages/dashboard.jsx';
 import NotFound from './components/notfound.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound/>} />
         </Route>
       </Routes>

@@ -20,15 +20,20 @@ export default function Login() {
       Axios.post("http://localhost:3001/login", {
         username: username,
         password: password
-      })
-        .then(res => {
-          console.log(res);
+      }).then(res => {
+        if(res.data === "Login Successful") {
+          console.log(res.data);
           toast.success("Bienvenido");
-        }).catch(err => {
-          console.log(err);
+          localStorage.setItem("token", res.data);
+          window.location.href = "/Dashboard";
+        }else{
           toast.error("Usuario o contraseña incorrectos");
         }
-        );
+      }
+      ).catch(err => {
+        toast.error("Error");
+      }
+      );
     }
     
   }
